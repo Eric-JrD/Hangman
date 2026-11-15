@@ -15,6 +15,14 @@ function newGame(){
 function guess(){
     let input = document.getElementById("guess");
     let letter = input.value;
+
+// this will run a loop to check whether the guessed 
+// // letter is a letter the player already tried
+    if( guesses.indexOf(letter) >= 0){
+        alert("You already guessed this");
+        return;
+    }
+
     if(word.indexOf(letter) < 0){
         guessCount--;
     }
