@@ -9,3 +9,6 @@ body{
 #newgamearea{
     margin-top: 2em;
 }
+#message{
+    color: red;
+}
