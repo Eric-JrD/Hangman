@@ -3,6 +3,7 @@ let POSSIBE_WORDS= ["obdurate", "verisimilitude", "defenestrate", "obsequious",
 let guesses = "";
 let word ="";
 function newGame(){
+    guesses = "";
     let randomIndex = parseInt(Math.random()*POSSIBE_WORDS.length);
     word = POSSIBE_WORDS[randomIndex];
     updateScreen();
