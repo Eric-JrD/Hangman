@@ -4,12 +4,16 @@ let guesses = "";
 let word ="";
 let MAX_GUESSES=6;
 let guessCount = MAX_GUESSES;
+let gameOver = false;
 
 function newGame(){
     guesses = "";
     guessCount = MAX_GUESSES;
     let randomIndex = parseInt(Math.random()*POSSIBE_WORDS.length);
     word = POSSIBE_WORDS[randomIndex];
+    
+    gameOver = false;
+
     updateScreen();
 }
 
@@ -17,6 +21,11 @@ function guess(){
     let input = document.getElementById("guess");
     let letter = input.value;
     let messageArea = document.getElementById("message");
+
+    if(gameOver === true){
+        messageArea.textContent = "Game over! Press New Game to Play again!";
+        return;
+    }
 
     if(word === ""){
         messageArea.textContent = "Please press New Game before guessing!"
@@ -60,10 +69,12 @@ let clueString="";
 
     if(guessCount === 0){
         guessArea.textContent = "You Lost!!!! The word was: " + word;
+        gameOver = true;
     }
 
     if(clueString.indexOf("_") === -1){
         guessArea.textContent = "You WONNNN!!!";
+        gameOver = true;
     }
 
     let image = document.getElementById("hangmanpic");
