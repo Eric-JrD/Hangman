@@ -4,6 +4,7 @@ let guesses = "";
 let word ="";
 let MAX_GUESSES=6;
 let guessCount = MAX_GUESSES;
+
 function newGame(){
     guesses = "";
     guessCount = MAX_GUESSES;
@@ -17,8 +18,11 @@ function guess(){
     let letter = input.value;
     let messageArea = document.getElementById("message");
 
-// this will run a loop to check whether the guessed 
-// // letter is a letter the player already tried
+    if(word === ""){
+        messageArea.textContent = "Please press New Game before guessing!"
+        return;
+    }
+
     if( guesses.indexOf(letter) >= 0){
         messageArea.textContent = "You already guessed this letter!";
         return;
