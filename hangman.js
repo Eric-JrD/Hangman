@@ -25,6 +25,7 @@ function guess(){
 
     if( guesses.indexOf(letter) >= 0){
         messageArea.textContent = "You already guessed this letter!";
+        input.value = "";
         return;
     }
 
@@ -34,6 +35,9 @@ function guess(){
         guessCount--;
     }
     guesses+=letter;
+
+    input.value = "";
+
     updateScreen();
 }
 
