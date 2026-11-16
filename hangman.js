@@ -57,6 +57,15 @@ let clueString="";
 
     let guessArea = document.getElementById("guesses");
     guessArea.textContent = "Guessed Letters: " + guesses;
+
+    if(guessCount === 0){
+        guessArea.textContent = "You Lost!!!! The word was: " + word;
+    }
+
+    if(clueString.indexOf("_") === -1){
+        guessArea.textContent = "You WONNNN!!!";
+    }
+
     let image = document.getElementById("hangmanpic");
     image.src = "images/hangman" + guessCount + ".gif";
 }
