@@ -13,7 +13,7 @@ function newGame(){
     word = POSSIBE_WORDS[randomIndex];
     
     gameOver = false;
-
+    document.getElementById("message").textContent = "";
     updateScreen();
 }
 
@@ -28,7 +28,12 @@ function guess(){
     }
 
     if(word === ""){
-        messageArea.textContent = "Please press New Game before guessing!"
+        messageArea.textContent = "Please press New Game before guessing!";
+        return;
+    }
+
+    if(letter === ""){
+        messageArea.textContent = "Please enter a letter!";
         return;
     }
 
